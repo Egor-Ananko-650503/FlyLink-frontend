@@ -1,5 +1,6 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {HttpEvent} from '@angular/common/http';
+import {MatTable} from '@angular/material';
 
 @Component({
   selector: 'app-files-upload',
@@ -16,7 +17,19 @@ export class FilesUploadComponent implements OnInit {
   formData: FormData;
   progress: number;
   httpEvent: HttpEvent<{}>;
+  displayedColumns = ['position', 'name', 'type', 'size', 'action'];
+  @ViewChild(MatTable) table: MatTable<File>;
 
   ngOnInit(): void {
+  }
+
+  deleteitem(index: number): void {
+    this.files.splice(index, 1);
+    this.table.renderRows();
+  }
+
+  deleteAllItems(): void {
+    this.files.splice(0, this.files.length);
+    this.table.renderRows();
   }
 }

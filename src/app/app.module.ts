@@ -6,7 +6,7 @@ import {ngfModule} from 'angular-file';
 import {FilesUploadComponent} from './components/files-upload/files-upload.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
-import {MatIconModule} from '@angular/material';
+import {MatButton, MatButtonBase, MatButtonModule, MatIconModule, MatTableModule} from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -20,7 +20,9 @@ import {MatIconModule} from '@angular/material';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    MatIconModule
+    MatIconModule,
+    MatButtonModule,
+    MatTableModule
   ],
   providers: [],
   bootstrap: [AppComponent]

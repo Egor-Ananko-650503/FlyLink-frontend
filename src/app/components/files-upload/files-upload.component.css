@@ -26,3 +26,8 @@ html, body {
   display: inline-block;
   margin: .2em;
 }
+
+table {
+  width: 100%;
+  margin-bottom: 20px;
+}
