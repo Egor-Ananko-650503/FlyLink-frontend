@@ -1,6 +1,7 @@
 <ngfFormData
   [(FormData)]="formData"
   [files]="files"
+  postName="files"
 ></ngfFormData>
 
 <ngfUploadStatus
@@ -20,13 +21,15 @@
        class="drop-zone"
        [class.invalid-drag]="validDrag === false"
        [class.valid-drag]="validDrag"
-  >Drop files here
+  >
+    <div class="drop-zone-text-wrapper">
+      <div class="drop-zone-text">Drop files here</div>
+    </div>
   </div>
-  <div>
-    <strong>accept:</strong>
-  </div>
-  <div>
-    <input type="text" [(ngModel)]="accept">
+  <div class="input-filter-block">
+    <mat-form-field class="input-filter-form-field">
+      <input matInput type="text" placeholder="Type filter" [(ngModel)]="accept">
+    </mat-form-field>
   </div>
 </div>
 
@@ -47,7 +50,7 @@
     <tr *ngFor="let item of lastInvalids;let i=index">
       <td>
         <div *ngIf="['image/gif','image/png','image/jpeg'].indexOf(item.file.type)>=0">
-          <div class="previewIcon" [ngfBackground]="item.File"></div>
+          <div class="previewIcon" [ngfBackground]="item.file"></div>
         </div>
         <strong>{{ item.file.name }}</strong>
       </td>
@@ -73,18 +76,20 @@
   </table>
 </div>
 
-<div>
+<div class="table-container">
   <h3>{{ files.length }} Queued Files</h3>
-  <div *ngIf="files.length != 0">
-    <table mat-table [dataSource]="files">
+  <div *ngIf="files.length != 0" class="valid-table-block">
+    <table mat-table [dataSource]="files" class="valid-table">
       <ng-container matColumnDef="position">
         <th mat-header-cell *matHeaderCellDef>No.</th>
-        <td mat-cell *matCellDef="let element">{{files.indexOf(element)}}</td>
+        <td mat-cell *matCellDef="let element">{{files.indexOf(element) + 1}}</td>
       </ng-container>
 
       <ng-container matColumnDef="name">
         <th mat-header-cell *matHeaderCellDef>Name</th>
-        <td mat-cell *matCellDef="let element">{{element.name}}</td>
+        <td mat-cell *matCellDef="let element">
+          <strong>{{element.name}}</strong>
+        </td>
       </ng-container>
 
       <ng-container matColumnDef="type">
@@ -94,13 +99,16 @@
 
       <ng-container matColumnDef="size">
         <th mat-header-cell *matHeaderCellDef>Size</th>
-        <td mat-cell *matCellDef="let element">{{element.size}}</td>
+        <td mat-cell *matCellDef="let element">{{element.size / 1024 / 1024 | number:'.3'}} MB</td>
       </ng-container>
 
       <ng-container matColumnDef="action">
         <th mat-header-cell *matHeaderCellDef>Action</th>
         <td mat-cell *matCellDef="let element">
-          <button mat-icon-button (click)="deleteitem(files.indexOf(element))">
+          <button mat-icon-button (click)="uploadFile(element)">
+            <mat-icon>save</mat-icon>
+          </button>
+          <button mat-icon-button (click)="deleteItem(files.indexOf(element))">
             <mat-icon>delete</mat-icon>
           </button>
         </td>
@@ -109,7 +117,15 @@
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
       <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
     </table>
+    <div class="buttons-group">
+      <button mat-raised-button color="primary" class="button-delete-all" (click)="deleteAllItems()">Delete all</button>
+      <button mat-raised-button color="primary" class="button-upload-all" (click)="uploadAll()">Upload all</button>
+    </div>
   </div>
-  <button mat-raised-button color="primary" (click)="deleteAllItems()">Delete all</button>
+  <!--<span style="font-weight:bold;color:green;" *ngIf="messageMultiple.length">-->
+  <!--<div *ngFor="let item of messageMultiple">-->
+  <!--{{item.fileDownloadUri}}-->
+  <!--</div>-->
+  <!--</span>-->
 </div>
 

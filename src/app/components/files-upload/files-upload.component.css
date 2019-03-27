@@ -1,5 +1,63 @@
+.inline-block {
+}
+
 .drop-zone {
-  border: dotted 3px lightgray;
+  margin: 100px auto 20px;
+  display: table;
+  min-height: 150px;
+  min-width: 400px;
+  width: 50%;
+  height: 250px;
+  background-color: snow;
+  border: dotted 3px #aaaaaa;
+}
+
+.drop-zone-text-wrapper {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.drop-zone-text {
+  text-align: center;
+}
+
+.buttons-group {
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  flex-direction: row;
+  margin-top: 20px;
+  width: 75%;
+}
+
+.button-upload-all {
+}
+
+.button-delete-all {
+  margin-right: 20px;
+}
+
+.input-filter-block {
+  margin: 0 auto;
+  width: 10%;
+}
+
+.table-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  /*border: dotted blue 3px*/
+}
+
+.valid-table-block {
+  width: 75%;
+  /*border: dotted 3px red;*/
+}
+
+.valid-table {
+  width: 100%;
+  /*border: dotted 3px skyblue;*/
 }
 
 /* Default class applied to drop zones on over */
@@ -16,18 +74,8 @@ html, body {
 }
 
 .previewIcon {
-  width: 100px;
-  height: 100px;
+  width: 150px;
+  height: 150px;
   background-size: cover;
   background-repeat: no-repeat;
-}
-
-.inline-block {
-  display: inline-block;
-  margin: .2em;
-}
-
-table {
-  width: 100%;
-  margin-bottom: 20px;
 }

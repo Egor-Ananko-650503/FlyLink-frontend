@@ -6,12 +6,14 @@ import {ngfModule} from 'angular-file';
 import {FilesUploadComponent} from './components/files-upload/files-upload.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
-import {MatButton, MatButtonBase, MatButtonModule, MatIconModule, MatTableModule} from '@angular/material';
+import {MatButtonModule, MatIconModule, MatInputModule, MatTableModule} from '@angular/material';
+import {FilesDownloadComponent} from './components/files-download/files-download.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    FilesUploadComponent
+    FilesUploadComponent,
+    FilesDownloadComponent
   ],
   imports: [
     BrowserModule,
@@ -22,7 +24,8 @@ import {MatButton, MatButtonBase, MatButtonModule, MatIconModule, MatTableModule
     HttpClientModule,
     MatIconModule,
     MatButtonModule,
-    MatTableModule
+    MatTableModule,
+    MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]
