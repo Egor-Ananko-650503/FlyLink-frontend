@@ -15,7 +15,7 @@ class Message {
   styleUrls: ['./files-upload.component.css']
 })
 export class FilesUploadComponent {
-  files: File[] = [];
+  validFiles: File[] = [];
   lastUploadedFile: File;
   lastInvalids: { file: File, errorType: string }[] = [];
   accept: String = '*';
@@ -55,7 +55,7 @@ export class FilesUploadComponent {
   }
 
   uploadAll(): void {
-    if (this.files.length === 0) {
+    if (this.validFiles.length === 0) {
       return;
     }
 
@@ -73,12 +73,12 @@ export class FilesUploadComponent {
   }
 
   deleteItem(index: number): void {
-    this.files.splice(index, 1);
+    this.validFiles.splice(index, 1);
     this.table.renderRows();
   }
 
   deleteAllItems(): void {
-    this.files.splice(0, this.files.length);
+    this.validFiles.splice(0, this.validFiles.length);
     this.table.renderRows();
   }
 }
