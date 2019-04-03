@@ -1,0 +1,10 @@
+<div class="main-block">
+  <div class="input-form-block">
+    <mat-form-field class="input-form-field">
+      <input matInput type="text" placeholder="Type file name" [(ngModel)]="fileName">
+    </mat-form-field>
+    <div class="download-button-block">
+      <button mat-raised-button color="primary" (click)="downloadFile()">Download</button>
+    </div>
+  </div>
+</div>

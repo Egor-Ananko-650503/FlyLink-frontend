@@ -1,0 +1,23 @@
+.main-block {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  /*border: dotted 3px green;*/
+}
+
+.input-form-block {
+  margin-top: 100px;
+  width: 35%;
+  /*border: dotted 3px orange;*/
+}
+
+.input-form-field {
+  min-width: 150px;
+  width: 100%;
+  /*border: dotted 3px red;*/
+}
+
+.download-button-block {
+  /*border: dotted 3px black;*/
+}
