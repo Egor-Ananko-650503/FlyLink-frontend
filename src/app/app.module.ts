@@ -8,12 +8,14 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import {MatButtonModule, MatIconModule, MatInputModule, MatTableModule} from '@angular/material';
 import {FilesDownloadComponent} from './components/files-download/files-download.component';
+import { FilesListAllComponent } from './components/files-list-all/files-list-all.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     FilesUploadComponent,
-    FilesDownloadComponent
+    FilesDownloadComponent,
+    FilesListAllComponent
   ],
   imports: [
     BrowserModule,
